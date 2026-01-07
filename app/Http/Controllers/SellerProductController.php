@@ -18,10 +18,10 @@ class SellerProductController extends Controller
             'product_name'        => 'required|string',
             'product_description' => 'nullable|string',
             'brands'              => 'required|array|min:1',
-            'brands.*.brand_name'   => 'required|string',
+            'brands.*.brand_name'   => 'required|string|max:255',
             'brands.*.brand_detail' => 'nullable|string',
             'brands.*.brand_price'  => 'required|numeric|min:0',
-            'brands.*.brand_image'  => 'nullable|image',
+            'brands.*.brand_image'  => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
         DB::beginTransaction();
